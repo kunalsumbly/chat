@@ -13,7 +13,7 @@
 
 <form th:action="@{/chat}" th:object="${chatForm}" method="post">
 	<label for="username">Username:</label>
-	<input id="username" type="text" th:field="*{userName}">
+	<output id="username" type="text" th:text="${loggeduser}"/>
 	<label for="messageText">Message Text:</label>
 	<input id="messageText" type="text" th:field="*{messageText}">
 	<label for="messageType">Message Type: </label>
@@ -25,6 +25,7 @@
 	</select>
 	<input type="submit">
 </form>
+
 <table>
       <tr>
         <th>User</th>
@@ -40,7 +41,9 @@
         </div>
       </tr>
     </table>
-  
+  <div class="form-group" style="margin-top: 0.5em;">
+                <label><a id="logout-link" th:href="@{/logout}">Logout</a></label>
+            </div>
 
 </body>
 </html>

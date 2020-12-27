@@ -28,7 +28,7 @@ public class ChatController {
 			deserialize.setMessageType(inputParam.getMessageType());
 			deserialize.setUserName(principal.getName());
 			chatService.createMessage(deserialize);
-			model.addAttribute("chats", chatService.getChatList());
+			model.addAttribute("chats", chatService.getChatList(principal.getName()));
 		}
 		
     	
@@ -42,7 +42,7 @@ public class ChatController {
 	@GetMapping(value="/chat")
     public String getChats(@ModelAttribute("chatForm")ChatForm inputParam,Model model, Principal principal) {
 		model.addAttribute("loggeduser", principal.getName());
-		model.addAttribute("chats", chatService.getChatList());
+		model.addAttribute("chats", chatService.getChatList(principal.getName()));
     	return "chat";
     }
 	

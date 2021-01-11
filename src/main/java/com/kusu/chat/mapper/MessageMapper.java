@@ -16,7 +16,7 @@ public interface MessageMapper {
     @Options(useGeneratedKeys = true, keyProperty = "chatId")
 	int insertChat(ChatForm chat);
 	
-	@Select("SELECT * FROM MESSAGES where username = #{username}")
-    List<ChatForm> getAllChats(String username);
+	@Select("SELECT * FROM MESSAGES")
+    List<ChatForm> getAllChats();
 
 }

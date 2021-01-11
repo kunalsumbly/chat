@@ -17,9 +17,8 @@ public class LogoutController {
     @GetMapping()
     public String logoutView(HttpServletRequest request, HttpServletResponse response) {
     	Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-    	if (authentication != null) {
-    		new SecurityContextLogoutHandler().logout(request, response, authentication);
-    	}
-        return "logout";
+    	SecurityContextLogoutHandler ctxLogOut = new SecurityContextLogoutHandler(); // concern you
+    	ctxLogOut.logout(request, response, authentication);
+    	return "logout";
     }
 }

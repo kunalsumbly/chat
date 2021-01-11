@@ -23,10 +23,10 @@
 	    <option value="Shout">Shout</option>
 	    <option value="Whisper">Whisper</option>
 	</select>
-	<input type="submit">
+	<input type="submit" id="submit-button">
 </form>
 
-<table>
+<table id="displayChat">
       <tr>
         <th>User</th>
         <th>Text</th>
@@ -34,10 +34,10 @@
       </tr>
       <tr th:each="chat : ${chats}">
         <td th:text="${chat.userName}">Vikram</td>
-        <div th:switch="${chat.messageType}">
-        	<td th:case="'Shout'" th:text="${#strings.toUpperCase(chat.messageText)}" >Vikram</td>
-        	<td th:case="'Whisper'" th:text="${#strings.toLowerCase(chat.messageText)}" >Vikram</td>
-        	<td th:case="*" th:text="${chat.messageText}" >Vikram</td>
+        <div  th:switch="${chat.messageType}">
+        	<td th:case="'Shout'" id="chat" th:text="${#strings.toUpperCase(chat.messageText)}" >Vikram</td>
+        	<td th:case="'Whisper'" id="chat" th:text="${#strings.toLowerCase(chat.messageText)}" >Vikram</td>
+        	<td th:case="*" id="chat" th:text="${chat.messageText}" >Vikram</td>
         </div>
       </tr>
     </table>

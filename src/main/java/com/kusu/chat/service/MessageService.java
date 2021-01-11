@@ -21,7 +21,7 @@ public class MessageService {
 	}
 	
 	
-	public List<ChatForm> getChatList(String username) {
-		return messageMapper.getAllChats(username);
+	public List<ChatForm> getChatList() {
+		return messageMapper.getAllChats();
 	}
 }
